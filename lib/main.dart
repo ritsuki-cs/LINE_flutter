@@ -67,9 +67,44 @@ class TalkRoute extends StatelessWidget {
               )
             ],
           ),
-          Text('Hello World'),
+          Expanded(
+            child: ListView(
+              children: [
+                _talkItem('Hello World 1', Icon(Icons.settings)),
+                _talkItem('Hello World 2', Icon(Icons.settings)),
+                _talkItem('Hello World 3', Icon(Icons.settings)),
+                _talkItem('Hello World 4', Icon(Icons.settings)),
+                _talkItem('Hello World 5', Icon(Icons.settings)),
+              ],
+            ),
+          )
         ],
       )
     );
   }
+
+  Widget _talkItem(String title, Icon icon) {
+    return Container(
+      decoration: new BoxDecoration(
+          border: new Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
+      ),
+      child:ListTile(
+        leading: icon,
+        title: Text(
+          title,
+          style: TextStyle(
+              color:Colors.black,
+              fontSize: 18.0
+          ),
+        ),
+        onTap: () {
+          print("onTap called.");
+        }, // タップ
+        onLongPress: () {
+          print("onLongPress called.");
+        }, // 長押し
+      ),
+    );
+  }
 }
+
