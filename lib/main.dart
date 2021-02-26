@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:styled_text/styled_text.dart';
 
 void main() {
@@ -17,6 +18,8 @@ class MyApp extends StatelessWidget {
 }
 
 class TalkRoute extends StatelessWidget {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
@@ -51,7 +54,13 @@ class TalkRoute extends StatelessWidget {
 
     return Scaffold(
       appBar: appBar,
-      body: Text('Hello World'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset('images/search_bar.png'),
+          Text('Hello World'),
+        ],
+      )
     );
   }
 }
