@@ -57,7 +57,16 @@ class TalkRoute extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset('images/search_bar.png'),
+          Stack(
+            children: [
+              Image.asset('images/search_bar.png'),
+              Positioned(
+                bottom: 16,
+                right: 27,
+                child: Icon(Icons.qr_code_scanner, color: Colors.black87, size: 18.0),
+              )
+            ],
+          ),
           Text('Hello World'),
         ],
       )
