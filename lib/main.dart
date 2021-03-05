@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'LINE Rebuild',
+      theme: ThemeData.light(),
       home: TalkRoute(),
     );
   }
@@ -19,7 +20,6 @@ class MyApp extends StatelessWidget {
 
 class TalkRoute extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     final appBar = AppBar(
@@ -34,6 +34,7 @@ class TalkRoute extends StatelessWidget {
             'icon': IconStyle(Icons.arrow_drop_down, color: Colors.black),
           }
       ),
+      elevation: 0.0,
       centerTitle: false,
       actions: <Widget>[
         IconButton(
@@ -70,31 +71,75 @@ class TalkRoute extends StatelessWidget {
           Expanded(
             child: ListView(
               children: [
-                _talkItem('Hello World 1', Icon(Icons.settings)),
-                _talkItem('Hello World 2', Icon(Icons.settings)),
-                _talkItem('Hello World 3', Icon(Icons.settings)),
-                _talkItem('Hello World 4', Icon(Icons.settings)),
-                _talkItem('Hello World 5', Icon(Icons.settings)),
+                _talkItem('Hello World 1', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 2', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 3', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 4', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 5', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 6', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 7', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 8', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 9', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 10', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 11', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 12', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 13', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 14', Icon(Icons.account_circle, size: 45.0)),
+                _talkItem('Hello World 15', Icon(Icons.account_circle, size: 45.0)),
               ],
             ),
           )
         ],
-      )
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: 'ホーム',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sms),
+            label: 'トーク',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.access_time),
+            label: 'タイムライン',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.wysiwyg),
+            label: 'ニュース',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.payment),
+            label: 'ウォレット',
+          ),
+        ],
+        selectedFontSize: 9.0,
+        unselectedFontSize: 9.0,
+        type: BottomNavigationBarType.fixed,
+      ),
     );
   }
 
   Widget _talkItem(String title, Icon icon) {
     return Container(
-      decoration: new BoxDecoration(
-          border: new Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
-      ),
+      height: 70.0,
       child:ListTile(
+        tileColor: Colors.white,
         leading: icon,
         title: Text(
           title,
           style: TextStyle(
               color:Colors.black,
-              fontSize: 18.0
+              fontSize: 16.0,
+              fontWeight: FontWeight.w600
+          ),
+        ),
+        subtitle: Text('サブタイトル'),
+        trailing: Text(
+          '昨日',
+          style: TextStyle(
+            fontSize: 10.0,
           ),
         ),
         onTap: () {
